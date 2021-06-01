@@ -23,7 +23,7 @@ setNextQuestion()
 }
 
 function setNextQuestion() {
-//this will be changed to setNextPaintings and load next set of paintings
+//this will load next set of paintings
 resetState()
 showQuestion(shuffledQuestions[currentQuestionIndex])
 //this is a function showQuestion() which will take our currentQuestion at the current question index 
@@ -34,7 +34,8 @@ function showQuestion(question) {
    questionElement.innerText = question.question
    question.answers.forEach(answer => {
     const button = document.createElement('button') 
-    button.innerText = answer.text
+    button.src = answer.imgUrl
+    button.innerHTML=""
     button.classList.add('btn') 
     if(answer.correct) {
      button.dataset.correct = answer.correct
@@ -86,24 +87,26 @@ function setStatusClass(element, correct) {
 //array of questions, which has objects 
 const questions = [
  {
-question: "What is 2+2",
+
+question: "Which is fake?",
 answers: [ 
- {text: '4', correct: true},
- {text: '22', correct: false}
+ {imgUrl: 'https://www.flickr.com/photos/193127869@N02/51216715590/in/dateposted-public/', correct: true},
+ {imgUrl: 'https://www.flickr.com/photos/193127869@N02/51215647736/in/dateposted-public/', correct: false}
 ]
  }, 
  {
-question: "What is a dog?",
+question: "Which is fake?",
 answers: [ 
- {text: 'great', correct: true},
- {text: 'unfriendly', correct: false}
+ {imgUrl: "https://www.flickr.com/photos/193127869@N02/51214928522/in/dateposted-public/", correct: true},
+ {imgUrl: "https://www.flickr.com/photos/193127869@N02/51214928502/in/dateposted-public/", correct: false}
 ]
  }, 
  {
- question: "What is a cat?",
+ question: "Which is fake?",
 answers: [ 
- {text: 'squish', correct: true},
- {text: 'hater of fish', correct: false}
+ {imgUrl: "https://www.flickr.com/photos/193127869@N02/51215855543/in/dateposted-public/", correct: true},
+ {imgUrl: 'https://www.flickr.com/photos/193127869@N02/51215855533/in/dateposted-public/', correct: false}
 ]
  }
 ]
+
